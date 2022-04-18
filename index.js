@@ -30,11 +30,16 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    counter1 is in the 'global scope' while counter2 is in the 'function scope'
+
   2. Which of the two uses a closure? How can you tell?
-  
+    counter1 uses a closure because it is an example of an inner function (the counter() function) 
+    reaching out to an out function's (the counterMaker() function) scope.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better? 
+    counter1 would be preferable where we want the count variable to be private (inaccessible outside of the function), while
+    counter2 would be preferable where we want to be able to access the count variable outside of the function.
 */
 
 // counter1 code
@@ -64,9 +69,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * 3);
 }
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -83,9 +89,20 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
-}
+function finalScore(callback, number){
+  const score = {};
+  let home = 0;
+  let away = 0;
+  for(let i = 0; i < number; i++){
+    home += inning();
+    away += inning();
+    }
+  score.Home = home;
+  score.Away = away;
+  return score
+} 
+
+console.log(finalScore(counter2, 9))
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -101,11 +118,16 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(callback) {
+  const score = {};
+  let home = inning();
+  let away = inning();
+  score.Home = home;
+  score.Away = away
+  return score
 
 }
-
+console.log(getInningScore(inning()))
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
