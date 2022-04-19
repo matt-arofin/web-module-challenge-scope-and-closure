@@ -102,7 +102,7 @@ function finalScore(callback, number){
   return score
 } 
 
-console.log(finalScore(counter2, 9))
+console.log(finalScore(inning, 9))
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -169,9 +169,18 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(inningcb, scorecb, num,) {
+  const array = [];
+  for(let i = 1; i <= num; i++){
+    while(i < num){
+      array.push(`Inning ${i}: Away ${inningcb} - Home ${inningcb}`)
+    }
+    if(i === num){
+      array.push(`Final Score: Away ${}`)
+    }
+    
+  }
+} console.log(scoreboard(inning, getInningScore, 4))
 
 
 
