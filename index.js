@@ -170,16 +170,22 @@ Use the scoreboard function below to do the following:
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
 function scoreboard(inningcb, scorecb, num,) {
-  const array = [];
+  /* const array = [];
+  let awayTotal = [];
+  let homeTotal = [];
   for(let i = 1; i <= num; i++){
     while(i < num){
-      array.push(`Inning ${i}: Away ${inningcb} - Home ${inningcb}`)
+      let awayScore = inning();
+      let homeScore = inning();
+      awayTotal.push(awayScore)
+      homeTotal.push(homeScore)
+      array.push(`Inning ${i}: Away ${awayScore} - Home ${homeScore}`)
     }
     if(i === num){
-      array.push(`Final Score: Away ${}`)
+      array.push(`Final Score: Away ${awayTotal.reduce((total, next) => total + next)} - Home ${homeTotal.reduce((total, next) => total + next)}`)
     }
     
-  }
+  }*/
 } console.log(scoreboard(inning, getInningScore, 4))
 
 
